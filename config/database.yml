@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: streaming_api
-  password: your_password_here
+  password: s.c0kd_dfKjx0s
   socket: /var/run/mysqld/mysqld.sock
 
 development:
