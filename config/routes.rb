@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get 'movies' => 'movie#index'
 
   get 'seasons' => 'season#index'
+
+  get 'library' => 'library#index_all'
 end

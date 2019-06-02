@@ -30,4 +30,21 @@ RSpec.describe Movie, type: :model do
   
   end
 
+  describe 'Index all' do
+    it 'returns all movies' do
+      movies = create_list(:movie, 4)
+      
+      expect(Movie.index_all).to eq(movies)
+    end
+
+    it 'returns movies in order' do
+      create_list(:movie, 4)
+      last = create(:movie, created_at: DateTime.now + 1.day)
+
+      resp = Movie.index_all
+
+      expect(resp.last['id']).to eq(last.id)
+    end
+  end
+
 end
