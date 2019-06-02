@@ -11,8 +11,16 @@ movies = Movie.create([
   {title: 'Lord of the rings', plot: 'A fantasy classic'}
 ])
 
-episodes = Episode.create([title: 'pilot', plot: 'A pilot episode'])
-seasons = Season.create([title: 'A beginning', plot: 'The first arc of the story'])
+seasons = Season.create([
+  {title: 'A beginning', plot: 'The first arc of the story'},
+  {title: 'The end', plot: 'The last arc of the story'}
+])
+episodes = Episode.create([
+  {title: 'pilot', plot: 'A pilot episode', season: seasons[0], number: 1},
+  {title: 'ep1', plot: 'First ep', season: seasons[0], number: 2},
+  {title: 'ep2', plot: 'Second ep', season: seasons[0], number: 3},
+  {title: 'final', plot: 'ending', season: seasons[1], number: 1}
+])
 
 p_opts = PurchaseOpt.create([
   {product: movies[0], price: 12.95, quality: SD},
