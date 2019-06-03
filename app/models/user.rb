@@ -4,4 +4,5 @@ class User < ApplicationRecord
   
   has_many :purchases
   has_many :purchase_opts, through: :purchases
+
 end
