@@ -15,4 +15,23 @@ class UserController < ApplicationController
     return render json: pur, status: 201
   end
 
+  def library
+    purchases = Purchase.all.active.includes(:purchase_opt).order(:created_at)
+    result = {}
+    result['movies'] = []
+    result['seasons'] = []
+
+    purchases.each do |pur|
+      p_opt = pur.purchase_opt
+      if p_opt.product_type == 'Movie'
+        result['movies'] << p_opt.product
+        next 
+      end
+      res = p_opt.product.attributes
+      res['episodes'] = p_opt.product.episodes.order(:number)
+      result['seasons'] << res
+    end 
+    #purchases.map{|p| p.purchase_opt.product}
+    return render json: result, status: 200
+  end
 end

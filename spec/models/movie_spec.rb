@@ -37,7 +37,7 @@ RSpec.describe Movie, type: :model do
       expect(Movie.index_all).to eq(movies)
     end
 
-    it 'returns movies in order' do
+    it 'returns movies in order (oldest first)' do
       create_list(:movie, 4)
       last = create(:movie, created_at: DateTime.now + 1.day)
 

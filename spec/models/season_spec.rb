@@ -55,7 +55,7 @@ RSpec.describe Season, type: :model do
       end
     end
 
-    it 'returns seasons in order' do
+    it 'returns seasons in order (oldest first)' do
       s1 = create(:season)
       s2 = create(:season, created_at: DateTime.now - 2.days)
 
@@ -63,7 +63,7 @@ RSpec.describe Season, type: :model do
       expect(resp.first['id']).to eq(s2.id)
     end
 
-    it 'returns episodes in order' do
+    it 'returns episodes in order (by number, incremental)' do
       s1 = create(:season)
       ep0 = create(:episode, number: 3, season: s1)
       ep1 = create(:episode, number: 2, season: s1)

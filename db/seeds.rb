@@ -37,5 +37,6 @@ users = User.create([
 
 purchases = Purchase.create([
   {purchase_opt: p_opts[0], user: users[0], created_at: DateTime.now},
-  {purchase_opt: p_opts[2], user: users[0], created_at: DateTime.now - 3.days}
+  {purchase_opt: p_opts[2], user: users[0], created_at: DateTime.now - 3.days},
+  {purchase_opt: p_opts[3], user: users[0], created_at: DateTime.now - 2.days}
 ])

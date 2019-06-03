@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'library' => 'library#index_all'
 
   post 'users/purchase' => 'user#purchase'
+  get 'users/library' => 'user#library'
 end
